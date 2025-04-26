@@ -1,0 +1,47 @@
+import {Component, inject, OnInit} from '@angular/core';
+import {HeaderComponent} from './components/header/header.component';
+import {ProductsComponent} from './components/products/products.component';
+import {ContactComponent} from './components/contact/contact.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {Router, RouterOutlet} from '@angular/router';
+import {CardEventComponent} from './components/card-event/card-event.component';
+import {EventService} from '../services/event.service';
+
+
+@Component({
+  selector: 'app-front',
+  imports: [HeaderComponent, ProductsComponent, ContactComponent, FooterComponent, RouterOutlet, CardEventComponent],
+  templateUrl: './front.component.html',
+  standalone: true,
+  styleUrl: './front.component.css'
+})
+export class FrontComponent implements OnInit{
+  router=inject(Router);
+  eventService=inject(EventService);
+  events:any[]=[];
+  isFrontPage(): boolean {
+    return this.router.url === '/front';
+  }
+
+  ngOnInit(): void {
+    this.loadEvents();
+  }
+
+  private loadEvents() {
+    this.eventService.getAllEvents().subscribe(
+      (events) => {
+        this.events = events;
+        console.log("events", events);
+
+      }
+    )
+  }
+
+  onEventUpdated($event: any) {
+    const index = this.events.findIndex(e => e.id === updatedEvent.id);
+    if (index > -1) {
+      this.events[index] = updatedEvent;
+    }
+
+  }
+}

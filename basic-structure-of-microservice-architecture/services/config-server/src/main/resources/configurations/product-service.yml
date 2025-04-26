@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      username: attia
+      password: attia
+      host: localhost
+      port: 27017
+      database: product
+      authentication-database: admin
+
+
+
+server:
+  port: 8040

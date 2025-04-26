@@ -1,0 +1,28 @@
+import {Component, inject, Input} from '@angular/core';
+import {CartService} from '../../../services/cart.service';
+import {Router} from '@angular/router';
+
+@Component({
+  selector: 'app-product',
+  imports: [],
+  templateUrl: './product.component.html',
+  standalone: true,
+  styleUrl: './product.component.css'
+})
+export class ProductComponent {
+  @Input() product!: any;
+  private _productCover: string | undefined;
+  cartService = inject(CartService);
+  router = inject(Router);
+  get productCover(): string | undefined {
+    if (this.product.cover) {
+      return 'data:image/jpg;base64,' + this.product.cover
+    }
+    return 'https://source.unsplash.com/user/c_v_r/1900x800';
+  }
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    this.router.navigate(['/front/panier']);
+  }
+}

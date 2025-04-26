@@ -1,0 +1,8 @@
+<div class="success-container">
+  <h1>✅ Payment Successful!</h1>
+
+  <p *ngIf="paymentDetails">Transaction ID: {{ paymentDetails.id }}</p>
+  <p *ngIf="paymentDetails">Amount Paid: {{ paymentDetails.amount_total / 100 | currency }}</p>
+
+  <a routerLink="/front" class="btn">🛍️ Continue Shopping</a>
+</div>

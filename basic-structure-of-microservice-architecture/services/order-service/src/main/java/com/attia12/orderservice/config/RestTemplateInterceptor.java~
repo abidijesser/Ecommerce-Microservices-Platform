@@ -1,0 +1,33 @@
+package com.attia12.orderservice.config;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.client.ClientHttpRequestExecution;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+@Component
+public class RestTemplateInterceptor implements ClientHttpRequestInterceptor {
+
+    @Override
+    public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
+        String token = extractToken();
+
+        if (token != null) {
+            request.getHeaders().add(HttpHeaders.AUTHORIZATION, "Bearer " + token);
+        }
+
+        return execution.execute(request, body);
+    }
+
+    private String extractToken() {
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() instanceof Jwt jwt) {
+            return jwt.getTokenValue();
+        }
+        return null;
+    }
+}

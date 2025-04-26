@@ -1,0 +1,11 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+  servlet:
+    multipart:
+      max-file-size: 50MB
+  application:
+    name: product-service
+    file:
+      uploads:
+        photos-output-path: ./uploads

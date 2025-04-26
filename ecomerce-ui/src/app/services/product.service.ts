@@ -1,0 +1,47 @@
+import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {Observable} from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+
+  constructor(private http:HttpClient) { }
+
+  getAllProducts(): Observable<any> {
+    return this.http.get(`${environment.apiBaseUrl}/products`);
+  }
+
+
+  getProductById(productId: string): Observable<any> {
+    return this.http.get<any>(`${environment.apiBaseUrl}/products/${productId}`);
+  }
+
+
+  createProduct(productRequest: any): Observable<any> {
+    return this.http.post<string>(`${environment.apiBaseUrl}/products`, productRequest,{responseType: 'text' as 'json'});
+  }
+
+
+
+
+
+  uploadProductCover(productId: string, file: File): Observable<void> {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post<void>(`${environment.apiBaseUrl}/products/cover/${productId}`, formData);
+  }
+  getAllCategories(): Observable<any[]> {
+    return this.http.get<any[]>(`${environment.apiBaseUrl}/products/categories`);
+  }
+  deleteProduct(productId: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiBaseUrl}/products/${productId}`);
+  }
+  updateProduct(productId: string, productData: any): Observable<void> {
+    return this.http.put<void>(`${environment.apiBaseUrl}/products/${productId}`, productData);
+  }
+
+}

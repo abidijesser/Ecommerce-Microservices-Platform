@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      username: attia
+      password: attia
+      host: localhost
+      port: 27017
+      database: reclamation
+      authentication-database: admin
+
+server:
+  port: 3001

@@ -1,0 +1,41 @@
+<section class="contact_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Contact Us
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <form [formGroup]="reclamationForm" (ngSubmit)="submitReclamation()">
+            <div>
+              <input type="text" placeholder="Your Name" formControlName="name" required />
+            </div>
+            <div>
+              <input type="text" placeholder="Phone Number"  formControlName="number" required/>
+            </div>
+            <div>
+              <input type="email" placeholder="Email"  formControlName="email" required />
+            </div>
+            <div>
+              <input type="text" class="message-box" placeholder="Message" formControlName="description" required />
+            </div>
+            <div class="btn_box">
+              <button [disabled]="reclamationForm.invalid">
+                SEND
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 ">
+        <div class="map_container">
+          <div class="map">
+            <div id="googleMap"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

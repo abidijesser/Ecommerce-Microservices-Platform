@@ -1,0 +1,103 @@
+<aside class="left-sidebar">
+  <!-- Sidebar scroll-->
+  <div>
+    <div class="brand-logo d-flex align-items-center justify-content-between">
+      <a href="./index.html" class="text-nowrap logo-img">
+        <img src="../assets/images/logos/logo.svg" alt="" />
+      </a>
+      <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+        <i class="ti ti-x fs-8"></i>
+      </div>
+    </div>
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+      <ul id="sidebarnav">
+        <li class="nav-small-cap">
+          <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+          <span class="hide-menu">Home</span>
+        </li>
+
+        <!-- Users -->
+        <li class="sidebar-item">
+          <a class="sidebar-link"  aria-expanded="false" routerLink="/back">
+            <iconify-icon icon="mdi:account-multiple-outline"></iconify-icon>
+            <span class="hide-menu">Users</span>
+          </a>
+        </li>
+        <!-- Events -->
+        <li class="sidebar-item">
+          <a class="sidebar-link justify-content-between"
+             routerLink="events" aria-expanded="false">
+            <div class="d-flex align-items-center gap-3">
+      <span class="d-flex">
+        <iconify-icon icon="mdi:calendar-multiselect"></iconify-icon>
+      </span>
+              <span class="hide-menu">Events</span>
+            </div>
+          </a>
+        </li>
+
+
+        <!-- Products -->
+        <li class="sidebar-item">
+          <a class="sidebar-link justify-content-between"
+             routerLink="products" aria-expanded="false">
+            <div class="d-flex align-items-center gap-3">
+        <span class="d-flex">
+          <iconify-icon icon="mdi:shopping-outline"></iconify-icon>
+        </span>
+              <span class="hide-menu">Products</span>
+            </div>
+
+          </a>
+        </li>
+
+        <!-- Orders -->
+        <li class="sidebar-item">
+          <a class="sidebar-link justify-content-between"
+             routerLink="orders" aria-expanded="false">
+            <div class="d-flex align-items-center gap-3">
+        <span class="d-flex">
+          <iconify-icon icon="mdi:clipboard-text-outline"></iconify-icon>
+        </span>
+              <span class="hide-menu">Orders</span>
+            </div>
+
+          </a>
+        </li>
+
+        <!-- Payments -->
+        <li class="sidebar-item">
+          <a class="sidebar-link justify-content-between"
+             routerLink="payments" aria-expanded="false">
+            <div class="d-flex align-items-center gap-3">
+        <span class="d-flex">
+          <iconify-icon icon="mdi:credit-card-outline"></iconify-icon>
+        </span>
+              <span class="hide-menu">Payments</span>
+            </div>
+
+          </a>
+        </li>
+
+        <!-- Reclamations -->
+           <li class="sidebar-item">
+          <a class="sidebar-link justify-content-between has-arrow" routerLink="reclamations" aria-expanded="false">
+            <div class="d-flex align-items-center gap-3">
+        <span class="d-flex">
+          <iconify-icon icon="mdi:alert-circle-outline"></iconify-icon>
+        </span>
+              <span class="hide-menu">Reclamations</span>
+            </div>
+
+          </a>
+          <!-- Keep child menu as is -->
+     </li>
+      </ul>
+
+
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+</aside>

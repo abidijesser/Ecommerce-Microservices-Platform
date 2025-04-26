@@ -1,0 +1,4 @@
+package com.attia12.userservice.comon;
+
+public class BaseAuditingEntity {
+}

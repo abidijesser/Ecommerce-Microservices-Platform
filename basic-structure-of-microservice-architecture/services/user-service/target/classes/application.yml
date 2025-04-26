@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: user-service
+  config:
+    import: optional:configserver:http://localhost:8888
+keycloak:
+  realm: micro-services
+  auth-server-url: http://localhost:9090
+  admin-client-id: admin-cli
+  admin-username: admin
+  admin-password: admin
+  client-id: micro-services-api

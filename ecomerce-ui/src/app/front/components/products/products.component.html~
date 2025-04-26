@@ -1,0 +1,15 @@
+<section class="product_section ">
+  <div class="container">
+    <div class="product_heading">
+      <h2>
+        New Arrivals
+      </h2>
+    </div>
+    <div class="product_container">
+      @for (product of products; track product.id) {
+        <app-product [product]="product"/>
+      }
+
+    </div>
+  </div>
+</section>
